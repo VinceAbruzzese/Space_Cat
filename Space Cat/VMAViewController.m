@@ -7,25 +7,29 @@
 //
 
 #import "VMAViewController.h"
-#import "VMAMyScene.h"
+#import "VMATitleScene.h"
 
 @implementation VMAViewController
 
-- (void)viewDidLoad
+- (void)viewDidLayoutSubviews
 {
-    [super viewDidLoad];
+    [super viewDidLayoutSubviews];
 
     // Configure the view.
     SKView * skView = (SKView *)self.view;
-    skView.showsFPS = YES;
-    skView.showsNodeCount = YES;
+    skView.showsFPS = NO;
+    skView.showsNodeCount = NO;
     
     // Create and configure the scene.
-    SKScene * scene = [VMAMyScene sceneWithSize:skView.bounds.size];
+    SKScene * scene = [VMATitleScene sceneWithSize:skView.bounds.size];
     scene.scaleMode = SKSceneScaleModeAspectFill;
     
     // Present the scene.
     [skView presentScene:scene];
+}
+
+- (BOOL) prefersStatusBarHidden {
+    return YES;
 }
 
 - (BOOL)shouldAutorotate
